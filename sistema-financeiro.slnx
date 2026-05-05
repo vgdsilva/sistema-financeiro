@@ -1,4 +1,6 @@
 <Solution>
+  <Project Path="SistemaFinanceiro.Infra.Data/SistemaFinanceiro.Infra.Data.csproj" Id="3ef3d883-b2c7-41a7-988c-07e8ed389288" />
+  <Project Path="src/SistemaFinanceiro.DevTools/SistemaFinanceiro.DevTools.csproj" />
   <Project Path="src/SistemaFinanceiro.Dominio/SistemaFinanceiro.Dominio.csproj" />
   <Project Path="src/SistemaFinanceiro/SistemaFinanceiro.csproj" Id="cc6aacb3-b16d-4d01-9801-53e20c84bade" />
 </Solution>
