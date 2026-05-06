@@ -21,7 +21,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\SistemaFinanceiro.Infra.Data\SistemaFinanceiro.Infra.Data.csproj" />
+	  <ProjectReference Include="..\SistemaFinanceiro.Infra.Data\SistemaFinanceiro.Infra.Data.csproj" />
 	  <ProjectReference Include="..\SistemaFinanceiro.Dominio\SistemaFinanceiro.Dominio.csproj" />
 	</ItemGroup>
 	

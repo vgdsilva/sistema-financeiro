@@ -1,6 +1,6 @@
-﻿namespace SistemaFinanceiro.Infra.Data.Configurations;
+﻿namespace SistemaFinanceiro.Infra.Data.Configuracoes;
 
-public class CategoriaConfiguration : IEntityTypeConfiguration<Categoria>
+public class CategoriaConfiguracao : IEntityTypeConfiguration<Categoria>
 {
     public void Configure(EntityTypeBuilder<Categoria> builder)
     {

@@ -9,4 +9,6 @@ public class Usuario : EntidadeControle
     public bool   Ativo     { get; set; } = true;
     public bool   Root      { get; set; } = false;
 
+
+    public ICollection<UsuarioSessao> Sessoes { get; set; } = new List<UsuarioSessao>();
 }
