@@ -1,12 +1,11 @@
 <Solution>
   <Folder Name="/client/">
-    <Project Path="src/SistemaFinanceiro.Client/SistemaFinanceiro.Client.csproj" Id="a7b5e930-3fbc-4957-94bd-6580475e6331" />
+    <Project Path="src/client/SistemaFinanceiro.Client/SistemaFinanceiro.Client.csproj" />
   </Folder>
   <Folder Name="/comum/">
-    <Project Path="src/SistemaFinanceiro.Dominio/SistemaFinanceiro.Dominio.csproj" />
-    <Project Path="src/SistemaFinanceiro.Infra.Data/SistemaFinanceiro.Infra.Data.csproj" />
+    <Project Path="src/shared/SistemaFinanceiro.Dominio/SistemaFinanceiro.Dominio.csproj" />
   </Folder>
   <Folder Name="/server/">
-    <Project Path="SistemaFinanceiro.Server/SistemaFinanceiro.Server.csproj" Id="887faabd-ced3-4609-9b23-2c7869c8faac" />
+    <Project Path="src/server/SistemaFinanceiro.Server/SistemaFinanceiro.Server.csproj" />
   </Folder>
 </Solution>
