@@ -6,6 +6,7 @@
     <Project Path="src/shared/SistemaFinanceiro.Dominio/SistemaFinanceiro.Dominio.csproj" />
   </Folder>
   <Folder Name="/server/">
+    <Project Path="src/server/SistemaFinanceiro.Server.Infra/SistemaFinanceiro.Server.Infra.Data.csproj" Id="ae8ab4e1-1ae2-4f06-9215-3c2c50c98026" />
     <Project Path="src/server/SistemaFinanceiro.Server/SistemaFinanceiro.Server.csproj" />
   </Folder>
 </Solution>
