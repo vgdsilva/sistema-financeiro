@@ -15,11 +15,12 @@ public class SistemaFinanceiroContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
+        
 
         // Configurações adicionais de mapeamento podem ser feitas aqui
         modelBuilder.Entity<Usuario>(entity =>
         {
+            entity.ToTable("usuario");
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Nome)
                   .IsRequired();
@@ -38,5 +39,27 @@ public class SistemaFinanceiroContext : DbContext
                   .HasConversion<int>()
                   .HasDefaultValue(TipoUsuarioEnum.USUARIO);
         });
+
+        foreach (var entity in modelBuilder.Model.GetEntityTypes())
+        {
+            // Nome da tabela
+            entity.SetTableName(entity.GetTableName()?.ToLower());
+
+            // Nome das colunas
+            foreach (var property in entity.GetProperties())
+                property.SetColumnName(property.GetColumnName().ToLower());
+
+            // Chaves e índices
+            foreach (var key in entity.GetKeys())
+                key.SetName(key.GetName()?.ToLower());
+
+            foreach (var index in entity.GetIndexes())
+                index.SetDatabaseName(index.GetDatabaseName()?.ToLower());
+
+            foreach (var fk in entity.GetForeignKeys())
+                fk.SetConstraintName(fk.GetConstraintName()?.ToLower());
+        }
+
+        base.OnModelCreating(modelBuilder);
     }
 }

@@ -1,5 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 using SistemaFinanceiro.Server.Infra.Data;
 using SistemaFinanceiro.Server.Infra.Data.Repositories;
 
@@ -17,19 +18,19 @@ public class Program
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
 
-        var connectionsString = builder.Configuration.GetConnectionString("PostgreSQL");
+        var connectionString = builder.Configuration.GetConnectionString("PostgreSQL");
 
-        builder.Services.AddDbContext<SistemaFinanceiroContext>(options =>
+        builder.Services.AddDbContextPool<SistemaFinanceiroContext>(options =>
         {
-            options.UseNpgsql(connectionsString, sqlOptions =>
+            options.UseNpgsql(connectionString, sqlOptions =>
             {
                 sqlOptions.CommandTimeout(30);
-                sqlOptions.EnableRetryOnFailure(maxRetryCount: 3, maxRetryDelay: TimeSpan.FromSeconds(5), errorCodesToAdd: null);
+                sqlOptions.EnableRetryOnFailure(
+                    maxRetryCount: 3,
+                    maxRetryDelay: TimeSpan.FromSeconds(5),
+                    errorCodesToAdd: null);
             });
-
-        }, ServiceLifetime.Scoped);
-
-        builder.Services.AddDbContextPool<SistemaFinanceiroContext>(options => { options.UseNpgsql(connectionsString); }, poolSize: 120);
+        }, poolSize: 120);
 
         builder.Services.AddScoped<UsuarioRepository>();
 
@@ -40,6 +41,8 @@ public class Program
         {
             app.MapOpenApi();
         }
+
+        app.MapScalarApiReference();
 
         app.UseHttpsRedirection();
 
